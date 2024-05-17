@@ -1,7 +1,10 @@
 example.java.helloworld
 =======================
 
-This is "Hello World" Example for Java.
+This is simple performance test for Java. 
+There is a main class which will calculate pi to x number of places. allowing performance testing. 
+
+
 
 The structure ``HelloWorld`` package is like this: ::
 
