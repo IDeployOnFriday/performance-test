@@ -7,7 +7,23 @@ public class Main
 {
     public static void main(String[] args)
     {
-        System.out.println("Hello world!");
+        String num = "100000";
+
+        if (args.length == 1){
+            num = args[0];
+        }
+
+        String result = pi(num);
+
+        System.out.println(result);    
+    }
+
+
+    public static String pi(String inStr){
+        // Set the number of terms to calculate
+        int n = Integer.parseInt(inStr);
+
+
         double startTime = System.nanoTime();
 
          // Set the precision to 100 decimal places
@@ -15,9 +31,6 @@ public class Main
 
         // Initialize the sum to 0
         BigDecimal sum = new BigDecimal(0, mc);
-
-        // Set the number of terms to calculate
-        int n = 10000;
 
         // Loop over the terms of the series
         for (int i = 1; i <= n; i++) {
@@ -35,9 +48,6 @@ public class Main
         double elapsedTime= (System.nanoTime() - startTime);
         double time = elapsedTime/1_000_000_000;
 
-
-        // Print the value of PI to 100 decimal places
-        System.out.println(time + " : Seconds ");
-    
+        return time + " : Seconds ";
     }
 }
