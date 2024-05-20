@@ -1,4 +1,4 @@
-Performance Testing Java local V DB
+# Performance Testing Java local V DB
 =======================
 
 This is simple performance test for Java. 
@@ -15,35 +15,42 @@ The structure ``HelloWorld`` package is like this: ::
   |-- Manifest.txt
   `-- README.md
 
-Compile class
+## Compile class
 -------------
 
 For compile the main class for package, execute the follow command: ::
 
+```
   javac HelloWorld/Main.java
+```
 
 This generate the ``Main.class`` file into ``HelloWorld`` directory.
 
-Create a JAR file
+## Create a JAR file
 -----------------
 
 For pack the main class for package as a JAR file, execute the follow command: ::
 
+```
   jar cfme Main.jar Manifest.txt HelloWorld.Main HelloWorld/Main.class
+```
 
-
-Run a JAR file
+# Run a JAR file
 --------------
 
 For run the JAR file packed, execute the follow command: ::
+The number value being how many place to compute Pi too 
 
+```
   java -jar Main.jar 1000
+```
 
 This show the how long it takes to calculate pi to 100 places 
 
 
 Run On DB 
 --------------
+```
 
 CREATE OR REPLACE PACKAGE my_function.timeme
 AS 
@@ -56,4 +63,9 @@ CREATE OR REPLACE PACKAGE BODY my_function.timeme
 AS
 FUNCTION pi(Num in String) RETURN VARCHAR2 AS LANGUAGE JAVA NAME 'HelloWorld.pi(java.lang.String)' return java.lang.String';
 END;
-/ 
+/
+```
+
+```
+Select HelloWorld.pi(1000) from dual; 
+```
