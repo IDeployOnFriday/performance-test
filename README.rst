@@ -1,4 +1,4 @@
-example.java.helloworld
+Performance Testing Java local V DB
 =======================
 
 This is simple performance test for Java. 
@@ -24,15 +24,6 @@ For compile the main class for package, execute the follow command: ::
 
 This generate the ``Main.class`` file into ``HelloWorld`` directory.
 
-Run class
----------
-
-For run the main class for package, execute the follow command: ::
-
-  java -cp . HelloWorld.Main
-
-This show the ``Hello world`` message.
-
 Create a JAR file
 -----------------
 
@@ -46,13 +37,23 @@ Run a JAR file
 
 For run the JAR file packed, execute the follow command: ::
 
-  java -jar Main.jar
+  java -jar Main.jar 1000
 
-This show the ``Hello world`` message.
+This show the how long it takes to calculate pi to 100 places 
 
-Reference
-=========
 
-- `java - How to run a JAR file - Stack Overflow <http://stackoverflow.com/questions/1238145/how-to-run-a-jar-file>`_.
+Run On DB 
+--------------
 
-- `Setting an Application's Entry Point (The Java™ Tutorials > Deployment > Packaging Programs in JAR Files) <http://docs.oracle.com/javase/tutorial/deployment/jar/appman.html>`_.
+CREATE OR REPLACE PACKAGE my_function.timeme
+AS 
+FUNCTION pi(Num in String) return VARCHAR;
+END;
+/
+
+
+CREATE OR REPLACE PACKAGE BODY my_function.timeme
+AS
+FUNCTION pi(Num in String) RETURN VARCHAR2 AS LANGUAGE JAVA NAME 'HelloWorld.pi(java.lang.String)' return java.lang.String';
+END;
+/ 
